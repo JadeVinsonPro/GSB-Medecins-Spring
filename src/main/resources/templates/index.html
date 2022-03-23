@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments/dashboard.html :: head">
+
+    <title th:text="'GSB • ' "></title>
+</head>
+
+<!--<header th:replace="fragments/dashboard.html :: header"></header>-->
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <nav th:replace="fragments/dashboard.html :: nav"></nav>
+
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2" th:text="Accueil"></h1>
+            </div>
+
+
+        <!-- Main content -->
+        <section class="slice py-7">
+            <div class="container">
+                <div class="row row-grid align-items-center">
+                    <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                        <!-- Image -->
+                        <figure class="w-100">
+                            <img alt="Image placeholder" src="https://img.freepik.com/vecteurs-libre/groupe-medecins-debout-au-batiment-hopital-equipe-praticiens-voiture-ambulance_74855-14034.jpg?w=1380&t=st=1647428043~exp=1647428643~hmac=a0b028500a2accae50e069063a9a86852c9c48ebe6041459cefdb99fccdb048e" class="img-fluid mw-md-120">
+                        </figure>
+                    </div>
+                    <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                        <!-- Heading -->
+                        <h1 class="display-4 text-center text-md-left mb-3">
+                            Bienvenue sur  <strong class="text-primary">GSB médecins</strong>.
+                        </h1>
+                        <!-- Text -->
+                        <p class="lead text-center text-md-left text-muted">
+
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="text-center text-md-left mt-5">
+
+                            <a href="" class="btn btn-primary btn-icon" target="_blank">
+                                <span class="btn-inner--text">Consulter les médecins</span>
+                                <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                            </a>
+                            <a href="#bts-sio" class="btn btn-neutral btn-icon d-none d-lg-inline-block">?</a>
+                        </div>
+
+                        <!-- Buttons -->
+                        <!--
+                        <div class="text-center text-md-left mt-5">
+                                <a href="cv.html" class="btn btn-primary btn-icon" target="_blank">
+                                <span class="btn-inner--text">Télécharger mon CV</span>
+                                <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                            </a>
+                            <a href="#bts-sio" class="btn btn-neutral btn-icon d-none d-lg-inline-block">Le BTS SIO ?</a>
+                        </div>
+                        --->
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+</div>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" class="btn btn-info" value="Logout" />
+</form>
+</body>
+</html>
