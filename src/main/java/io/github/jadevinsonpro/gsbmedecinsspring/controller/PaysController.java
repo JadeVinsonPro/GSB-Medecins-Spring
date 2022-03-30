@@ -44,6 +44,23 @@ public class PaysController {
         }
     }
 
+    @GetMapping("/departements/{idPays}")
+    public String getDepartementsByPays(Model model, @PathVariable("idPays") Long idPays){
+
+        Pays pays = this.paysService.findPaysById(idPays);
+        List<Medecin> medecins = this.medecinService.findMedecinsByPays(pays);
+
+        if(medecins.size() == 0){
+            return "noMedecinPays";
+        }
+        else{
+            model.addAttribute("medecinList",medecins);
+            return "ListMedecins";
+        }
+    }
+
+
+
 
 
 }

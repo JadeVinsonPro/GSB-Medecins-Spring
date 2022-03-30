@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html :: head"></head>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,47 +17,58 @@
 </head>
 <body class="bg-image">
 
-<header th:replace="fragments/dashboard.html" :: header></header>
+<div class="container-fluid">
+    <div class="row">
+        <nav th:replace="fragments/head.html :: nav"></nav>
 
-<div class="row">
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search shadow-lg"
-          method="get" action="/medecins/nom">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Chercher un pays"
-                   aria-label="Search" aria-describedby="basic-addon2" id="search" name="pays"> <!--nom ou prénom-->
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2" >Médecins</h1>
             </div>
-        </div>
-    </form>
-    <div class="col-3"></div>
+            <div class="d-grid gap-2">"
+                <a class="btn btn-primary" type="button" th:href="@{/medecins/createMedecin}">Nouveau</a>
 
-    <div class="col-6 card border-0 shadow-lg">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Pays</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="pays: ${paysList}">
-                <th scope="row"><div th:text="${pays.getNom()}"></div></th>
-                <th scope="row"><a class="btn btn-primary"th:href="@{/pays/medecins/{pays}(pays=${pays.id})}">
-                    Les médecins</a></th>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+            </div>
+            </br>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Liste des médecins</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Pays</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="pays: ${paysList}">
+                                <th scope="row"><div th:text="${pays.getNom()}"></div></th>
+                                <th scope="row"><a class="btn btn-primary"th:href="@{/pays/departements/{pays}(pays=${pays.id})}">
+                                    Les départements</a></th>
+                                <th scope="row"><a class="btn btn-primary"th:href="@{/pays/medecins/{pays}(pays=${pays.id})}">
+                                    Les médecins</a></th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
 
     <div class="col-3"></div>
 </div>
 
 <br><br>
-
+            </div>
+        </main>
+    </div>
+</div>
+z
 <footer th:replace="fragments/footer.html" :: footer></footer>
+
 
 </body>
 </html>

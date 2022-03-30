@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/dashboard.html :: head"></head>
+<head th:replace="fragments/head.html :: head"></head>
 <body class="bg-image">
 
 
 
 <div class="container-fluid">
     <div class="row">
-        <nav th:replace="fragments/dashboard.html :: nav"></nav>
+        <nav th:replace="fragments/head.html :: nav"></nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -68,9 +68,9 @@
 
 
                         <td>
-                            <a type="button" class="btn btn-outline-info" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
-                            <a  type="button" class="btn btn-outline-success" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
-                            <a type="button" class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
+                            <a type="button" class="btn btn-outline-info" th:href="@{/medecins/{id}(id=${medecin.id})}"><i class="bi bi-three-dots">Détails</i></a>
+                            <a  type="button" class="btn btn-outline-success" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}"><i class="bi bi-pencil-square">Modifier</i></a>
+                            <a type="button" class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}"><i class="bi bi-trash">Supprimer</i></a>
                         </td>
                     </tr>
                     </tbody>
